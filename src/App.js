@@ -1,25 +1,60 @@
 import logo from './logo.svg';
 import './App.css';
+import Button from '@mui/material/Button';
+import  Grid  from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Sidebar from './components/Sidebar';
+import Showcase from './components/Showcase';
+import Cartbar from './components/Cartbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from "react";
+
+class App extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state={
+      categories:[],
+      category:"smartphones"
+    }
+  }
+
+  fetchData=async()=>{
+    const response=await fetch("https://dummyjson.com/products/categories")
+    const result = await response.json()
+    this.setState({
+      categories:result
+    })
+  }
+
+  updateCategory=(selectedCategory)=>{
+    this.setState({
+      category:selectedCategory
+    })
+  }
+
+  componentDidMount(){
+    this.fetchData()
+  }
+
+  render(){
+    const {categories,category}=this.state
+    return (
+      <>
+        <h1>Ecommerce</h1>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Sidebar categories={categories} category={category} updateCategory={this.updateCategory}/>
+          </Grid>
+          <Grid item xs={10}>
+            <Showcase category={category}/>
+          </Grid>
+        </Grid>
+        <Cartbar/>
+      </>
+      )
+  }
 }
 
 export default App;
