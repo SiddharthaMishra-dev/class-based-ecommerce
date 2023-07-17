@@ -38,8 +38,8 @@ class Showcase extends React.Component{
 
     render(){
         const {productList}=this.state
-        console.log(this.props.cart)
-        console.log(productList)
+        // console.log(this.props.cart)
+        // console.log(productList)
         return <>
             <h2>Your {this.props.category} Showcase</h2>
             {
