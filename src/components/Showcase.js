@@ -6,6 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {connect} from "react-redux";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Box from '@mui/material/Box';
 import { addItem } from "../store/actions";
 
 class Showcase extends React.Component{
@@ -44,38 +48,40 @@ class Showcase extends React.Component{
             <h2>Your {this.props.category} Showcase</h2>
             {
                 productList?
-                <div>
-                    <ul>
+                
+                    <List dense={true}>
                         {productList.map((product,index)=>{
                             return(
-                                <li key={index}>
-                                    <Card sx={{ maxWidth: 400 , marginTop:10}} >
+                                <ListItem key={index}>
+                                    <Card sx={{  marginTop:10,display:'flex'}}>
                                         <CardMedia
-                                            sx={{ height: 400 }}
+                                            sx={{ width:400 , height:400 }}
                                             image={product.thumbnail}
                                             title={product.title}
                                         />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                            {product.title}
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {product.description}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Button size="small"  >Share</Button>
-                                            <Button size="small" onClick={()=>{
-                                                this.props.addItem(product)
-                                                console.log(this.props.cart)
-                                            }}>Add to Cart</Button>
-                                        </CardActions>
+                                        <Box sx={{display:"flex",flexDirection:'column'}}>
+                                            <CardContent sx={{display:"flex",flexDirection:'column'}}>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                {product.title}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary">
+                                                    {product.description}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Button size="small"  >Share</Button>
+                                                <Button size="small" onClick={()=>{
+                                                    this.props.addItem(product)
+                                                    console.log(this.props.cart)
+                                                }}>Add to Cart</Button>
+                                            </CardActions>
+                                        </Box>
                                     </Card>
-                                </li>
+                                </ListItem>
                             )
                         })}
-                    </ul>
-                </div>:<h1>Loading</h1>
+                    </List>
+                :<h1>Loading</h1>
             }
         </>
     }

@@ -1,4 +1,8 @@
 import React from "react";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+
 class Sidebar extends React.Component{
 
     handleCategorySelection=(selectedCategory)=>{
@@ -12,11 +16,11 @@ class Sidebar extends React.Component{
                 {
                     categories
                     ?(<div>
-                        <ul>
+                        <List>
                         {categories.map((item,index)=>{
-                            return <li key={index} onClick={()=>this.handleCategorySelection(item)} >{item}</li>
+                            return <ListItem key={index} onClick={()=>this.handleCategorySelection(item)} ><ListItemText primary={item}/></ListItem>
                         })}
-                        </ul>
+                        </List>
                     </div>):"loading"
                  }
             </>

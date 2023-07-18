@@ -43,8 +43,8 @@ class App extends React.Component{
     return (
       <>
         <h1>Ecommerce</h1>
-        <Grid container spacing={2}>
-          <Grid item xs={2} position='fixed'>
+        <Grid container spacing={0.5}>
+          <Grid item xs={2} position='sticky' top={0} sx={{height:"100vh", overflow:"auto"}}>
             <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
           </Grid>
           <Grid item xs={10}>
