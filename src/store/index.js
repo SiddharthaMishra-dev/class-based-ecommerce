@@ -39,6 +39,10 @@ const reducerFxn=(state={cart:[]},actions)=>{
         // return a new copy of the state with the updated cart array
         return {...state, cart: newCart};
     }
+    if(actions.type==="removeCart"){
+        const newCart=[]
+        return {...state,cart:newCart}
+    }
     return state;
 }
 

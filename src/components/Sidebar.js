@@ -2,6 +2,7 @@ import React from "react";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 
 class Sidebar extends React.Component{
 
@@ -18,7 +19,7 @@ class Sidebar extends React.Component{
                     ?(<div>
                         <List>
                         {categories.map((item,index)=>{
-                            return <ListItem key={index} onClick={()=>this.handleCategorySelection(item)} ><ListItemText primary={item}/></ListItem>
+                            return <ListItem key={index} onClick={()=>this.handleCategorySelection(item)} ><ListItemButton><ListItemText primary={item}/></ListItemButton></ListItem>
                         })}
                         </List>
                     </div>):"loading"
