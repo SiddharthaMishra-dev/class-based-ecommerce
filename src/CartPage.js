@@ -33,7 +33,7 @@ class CartPage extends React.Component{
                         {cart.map((product,index)=>{
                             return(
                                 <ListItem key={index}>
-                                    <Card sx={{ width:900, marginTop:10,display:'flex'}}>
+                                    <Card sx={{ width:900, marginTop:5,display:'flex'}}>
                                         <CardMedia
                                             sx={{ width:400 , height:400 }}
                                             image={product.thumbnail}

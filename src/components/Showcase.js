@@ -46,15 +46,15 @@ class Showcase extends React.Component{
 
     render(){
         const {productList}=this.state
-        return <>
-            <h2>Your {this.props.category} Showcase</h2>
+        return (
+        <Box sx={{backgroundColor:'#ffff'}}>
             {
                 productList?
                     <List dense={true}>
                         {productList.map((product,index)=>{
                             return(
                                 <ListItem key={index}>
-                                    <Card sx={{ width:900, marginTop:10,display:'flex'}}>
+                                    <Card sx={{width:1, marginBottom:5,display:'flex'}}>
                                         <CardMedia
                                             sx={{ width:400 , height:400 }}
                                             image={product.thumbnail}
@@ -84,7 +84,7 @@ class Showcase extends React.Component{
                                                 <Button size="small"  >
                                                     <ShareIcon/>
                                                 </Button>
-                                                <Button size="small" onClick={()=>{
+                                                <Button size="medium" variant="contained" onClick={()=>{
                                                     this.props.addItem(product)
                                                     console.log(this.props.cart)
                                                 }}>Add to Cart</Button>
@@ -97,7 +97,8 @@ class Showcase extends React.Component{
                     </List>
                 :<h1>Loading</h1>
             }
-        </>
+        </Box>
+        );
     }
 }
 
