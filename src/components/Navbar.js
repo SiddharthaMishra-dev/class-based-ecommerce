@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -29,7 +30,11 @@ class Navbar extends React.Component{
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                   Ecommerce
                 </Typography>
-                <Button color="inherit">Products</Button>
+                <Link to='/'  > 
+                  <Button color="inherit" sx={{color:'white'}} >
+                     Products
+                  </Button>
+                </Link>
               </Toolbar>
             </AppBar>
         </Box>

@@ -1,6 +1,43 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+.showcase{
+  padding:2%;
+}
+.cart-container{
+  display:flex;
+  justify-content: center;
+}
+
+@media screen and (max-width:1000px){
+  .list-item{
+    min-width: fit-content !important;
+
+  }
+}
+
 @media screen and (max-width:598px){
   .item-card{
     display:flex;
     flex-direction: column;
+
   }
 }
+@media screen and (min-width:599px){
+  .product-image{
+    max-width: 400px;
+    height: 400px;
+  }
+  
+}
+
+@media screen and (max-width:1440px){
+  .cart-container{
+    display:flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+

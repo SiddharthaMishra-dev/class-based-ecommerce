@@ -54,11 +54,12 @@ class Showcase extends React.Component{
                         {productList.map((product,index)=>{
                             return(
                                 <ListItem key={index}>
-                                    <Card sx={{width:1, marginBottom:5,display:'flex'}} className="item-card" >
+                                    <Card sx={{width:1, marginBottom:3,display:'flex'}} className="item-card" >
                                         <CardMedia
-                                            sx={{ width:400 , height:400 }}
+                                            sx={{ width:'100%' , height:300 }}
                                             image={product.thumbnail}
                                             title={product.title}
+                                            className="product-image"
                                         />
                                         <Box sx={{display:"flex",flexDirection:'column', justifyContent:'space-between' }}>
                                             <CardContent sx={{display:"flex",flexDirection:'column'}}>

@@ -59,19 +59,17 @@ class Home extends React.Component{
       <Box sx={{backgroundColor:color}} >
         <Navbar toggleFunction={this.toggleDrawer} />
           <Box sx={{display:{sm:'none'}}}>
-              
                 <Drawer anchor="left" open={open} onClose={this.toggleDrawer}>
                   <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
                 </Drawer>
-            
           </Box>
-          <Grid container spacing={1} sx={{width:'90%',margin:'auto'}}  >
+          <Grid spacing={1} container sx={{width:'90%',margin:'auto'}}  >
             <Hidden smDown>
             <Grid item  sm={2} >
               <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
             </Grid>
             </Hidden>
-            <Grid item  sm={10} >
+            <Grid item  sm={10} className='' >
               <Showcase category={category}/>
             </Grid>
           </Grid>

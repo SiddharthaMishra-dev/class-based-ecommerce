@@ -25,14 +25,14 @@ class Sidebar extends React.Component{
             <Box sx={{backgroundColor:'#ffff'}}>
                 {
                     categories
-                    ?(<div>
-                        <List>
+                    ?(
+                        <List className="list-item" >
                         {categories.map((item,index)=>{
                             return <ListItem key={index} onClick={()=>this.handleCategorySelection(item,index)} ><ListItemButton selected={this.state.selectedCategory===index} ><ListItemText primary={item}/></ListItemButton></ListItem>
                         })}
                         </List>
-                    </div>):"loading"
-                 }
+                    ):"loading"
+                 }  
             </Box>
         )
     }
