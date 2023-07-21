@@ -27,10 +27,16 @@ class Navbar extends React.Component{
                 >
                   <MenuIcon />
                 </IconButton>
+                
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                   Ecommerce
                 </Typography>
                 <Link to='/'  > 
+                  <Button color="inherit" sx={{color:'white'}} >
+                     Home
+                  </Button>
+                </Link>
+                <Link to='/products'  > 
                   <Button color="inherit" sx={{color:'white'}} >
                      Products
                   </Button>
