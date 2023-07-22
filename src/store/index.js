@@ -27,12 +27,12 @@ const reducerFxn=(state={cart:[]},actions)=>{
         const index=newCart.findIndex((cartItem)=>cartItem.id===item.id)
             if(index>=0){
                 // create a new copy of the cart item object
-                const newItem = {...newCart[index], count: newCart[index].count + 1};
+                let newItem = {...newCart[index], count: newCart[index].count + 1};
                 // replace the old item with the new item
                 newCart[index] = newItem;
             }else{
                 // create a new copy of the item object with count property
-                const newItem = {...item, count: 1};
+                let newItem = {...item, count: 1};
                 // add the new item to the new cart array
                 newCart.push(newItem);
             }
@@ -42,6 +42,19 @@ const reducerFxn=(state={cart:[]},actions)=>{
     if(actions.type==="removeCart"){
         const newCart=[]
         return {...state,cart:newCart}
+    }
+    if(actions.type==='removeItem'){
+        let newCart=[...state.cart]
+        const index=newCart.findIndex((cardItem)=>cardItem.id===actions.payload)
+        if(newCart[index].count>1){
+            newCart[index].count-=1
+        }else{
+           newCart= newCart.filter((cartItem)=>cartItem.id !==actions.payload)
+        }
+        return {...state,cart:newCart}
+    }
+    if(actions.type ==="increaseNumber"){
+        
     }
     return state;
 }

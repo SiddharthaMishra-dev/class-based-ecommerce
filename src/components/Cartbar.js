@@ -25,9 +25,9 @@ class Cartbar extends React.Component{
                                 <h2>Items :{total_count}</h2>
                             </Button>
                         </Link>
-                        <Button color="inherit" >
+                        {/* <Button color="inherit" >
                             <DeleteIcon sx={{}} onClick={()=>this.props.removeCart()} />
-                        </Button>
+                        </Button> */}
                     </Toolbar>
                 </AppBar>
            }

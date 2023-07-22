@@ -73,7 +73,7 @@ class Home extends React.Component{
               <Showcase category={category}/>
             </Grid>
           </Grid>
-          <Cartbar/>
+          {/* <Cartbar/> */}
       </Box>
       )
   }
