@@ -22,9 +22,8 @@ class Navbar extends React.Component{
             itemCount+=item.count
         })}
         return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="sticky">
-              <Toolbar>
+            <AppBar position="sticky" className="navbar">
+              <Toolbar variant="dense">
                 <IconButton
                   size="large"
                   edge="start"
@@ -32,34 +31,35 @@ class Navbar extends React.Component{
                   aria-label="menu"
                   sx={{display:{sm:'none'}, mr: 2 }}
                   onClick={this.props.toggleFunction}
+                  className="cart-button"
                 >
                   <MenuIcon />
                 </IconButton>
                 
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                  Ecommerce
+                <Typography variant="h6" component="div" sx={{}} className="navbar-heading" >
+                  ShopKaro
                 </Typography>
+                <Box sx={{marginLeft:'auto'}}  >
                 <Link to='/'  > 
-                  <Button color="inherit" sx={{color:'white'}} >
+                  <Button color="inherit" sx={{color:'white'}} className="navbar-content" >
                      Home
                   </Button>
                 </Link>
                 <Link to='/products'  > 
-                  <Button color="inherit" sx={{color:'white'}} >
+                  <Button color="inherit" sx={{color:'white'}} className="navbar-content" >
                      Products
                   </Button>
                 </Link>
                 <Link to ='/cart'>
-                  
-                  <Button color='inherit' sx={{color:'white'}} >
-                    <Badge badgeContent={itemCount} color='error' >
-                      <ShoppingCartIcon/>
+                  <Button color='inherit' sx={{color:'white'}} className="cart-button"  >
+                    <Badge badgeContent={itemCount} color='error'  >
+                      <ShoppingCartIcon className="cart-icon" />
                     </Badge>
                   </Button>
                 </Link>
+                </Box>
               </Toolbar>
             </AppBar>
-        </Box>
         )
     }
 }

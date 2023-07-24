@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "./Home";
-import CartPage from "./CartPage";
-import Start from "./Start";
+import Home from "./pages/Home";
+import CartPage from "./pages/CartPage";
+import Start from "./pages/Start";
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
 class App extends React.Component{

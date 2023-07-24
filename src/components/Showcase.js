@@ -8,13 +8,12 @@ import Typography from '@mui/material/Typography';
 import {connect} from "react-redux";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 import ShareIcon from '@mui/icons-material/Share';
 import { addItem } from "../store/actions";
-import { removeCart } from "../store/actions";
+
 
 class Showcase extends React.Component{
 
@@ -31,7 +30,6 @@ class Showcase extends React.Component{
         this.setState({
             productList:result.products
         })
-        // console.log(result)
     }
 
     componentDidMount(){

@@ -1,15 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar';
+
+import Navbar from '../components/Navbar';
 import Button from '@mui/material/Button';
 import  Grid  from '@mui/material/Grid';
 import {Hidden} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Sidebar from './components/Sidebar';
-import Showcase from './components/Showcase';
-import Cartbar from './components/Cartbar';
+import Sidebar from '../components/Sidebar';
+import Showcase from '../components/Showcase';
+import Cartbar from '../components/Cartbar';
 import {grey} from '@mui/material/colors'
 import React from "react";
 import { Box } from '@mui/material';
@@ -47,7 +46,6 @@ class Home extends React.Component{
       category:selectedCategory
     })
   }
-
   componentDidMount(){
     this.fetchData()
   }
@@ -73,7 +71,6 @@ class Home extends React.Component{
               <Showcase category={category}/>
             </Grid>
           </Grid>
-          {/* <Cartbar/> */}
       </Box>
       )
   }

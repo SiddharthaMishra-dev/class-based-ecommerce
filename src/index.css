@@ -3,6 +3,10 @@
   margin:0;
   box-sizing: border-box;
 }
+.navbar{
+  width: 100vw !important; 
+}
+
 .showcase{
   padding:2%;
 }
@@ -25,16 +29,19 @@
   text-align: center;
   padding:20px
 }
+.item-card{
+  width: 600px;
+}
 
 @media screen and (max-width:1000px){
   .list-item{
     min-width: fit-content !important;
-
   }
 }
 
 @media screen and (max-width:598px){
   .item-card{
+    width:100%;
     display:flex;
     flex-direction: column;
   }
@@ -61,6 +68,23 @@
     display:flex !important;
     flex-direction: column !important;
     align-items: center;
+  }
+}
+
+@media screen and (max-width:400px){
+  .navbar-heading{
+    font-size:0.80rem !important;
+  }
+  .navbar-content{
+    font-size:0.70rem !important;
+    padding: 4px 6px !important;
+  }
+  .cart-icon{
+    font-size:1rem !important;
+  }
+  .cart-button{
+    min-width:fit-content !important;
+    padding:1px !important;
   }
 }
 

@@ -1,20 +1,23 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import EmptyCart from "./components/emptyCart";
+import Navbar from "../components/Navbar";
+import EmptyCart from "../components/emptyCart";
 import {connect} from 'react-redux'
-import { removeItem,addItem } from "./store/actions";
+import { removeItem,addItem } from "../store/actions";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
 import List from '@mui/material/List';
 import TextField from '@mui/material/TextField';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import Box from '@mui/material/Box';
 import ShareIcon from '@mui/icons-material/Share';
 import {grey,green} from '@mui/material/colors'
@@ -27,11 +30,11 @@ class CartPage extends React.Component{
         console.log('Cart:',cart)
         let totalPrice=0
         let totalDiscount=0
-        let total_count=0
+       
         {cart.map((item)=>{
-            total_count+=item.count
+            
             totalPrice=totalPrice+(item.count*item.price)
-            let discount=(item.discountPercentage/100)*item.price
+            let discount=(item.discountPercentage/100)*item.price*item.count
             discount=parseInt(discount)
             totalDiscount+=discount
         })}
@@ -41,13 +44,12 @@ class CartPage extends React.Component{
             <>
                 <Box  sx={{ backgroundColor:color}} >
                     <Navbar/>
-                    {/* <Box  className="cart-container" > */}
                         { cart.length!=0?(<Box className="cart-container">
                                 <List dense={true}>
                                     {cart.map((product,index)=>{
                                         return(
                                             <ListItem key={index}>
-                                                <Card  sx={{width:1, marginBottom:5,display:'flex'}} className="item-card">
+                                                <Card  sx={{ marginBottom:5,display:'flex'}} className="item-card">
                                                     <CardMedia
                                                         sx={{ width:'100%' , height:300 }}
                                                         image={product.thumbnail}
@@ -78,20 +80,16 @@ class CartPage extends React.Component{
                                                             <Button size="small"  >
                                                                 <ShareIcon/>
                                                             </Button>
-                                                            <TextField
-                                                                id="outlined-number"
-                                                                label="Number"
-                                                                type="number"
-                                                                InputLabelProps={{
-                                                                    shrink: true,
-                                                                }}
-                                                                value={product.count}
-                                                                defaultValue='1'
-                                                                onChange={()=>this.props.addItem(product)}
-                                                            />
-                                                            <Button size="small" onClick={()=>this.props.removeItem(product.id)} >
-                                                                <DeleteIcon/>
+                                                            <Button size="small"  onClick={()=>this.props.addItem(product)} >
+                                                                <AddCircleIcon  />
                                                             </Button>
+                                                            <Chip label={product.count}  />
+                                                            <Button size="small"  onClick={()=>this.props.removeItem(product.id)}>
+                                                                <RemoveCircleIcon  />
+                                                            </Button>
+                                                            {/* <Button size="small" onClick={()=>this.props.removeItem(product.id)} >
+                                                                <DeleteIcon/>
+                                                            </Button> */}
                                                         </CardActions>
                                                     </Box>
                                                 </Card>
