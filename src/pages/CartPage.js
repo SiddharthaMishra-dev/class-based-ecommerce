@@ -29,8 +29,7 @@ class CartPage extends React.Component{
         const {cart}=this.props
         console.log('Cart:',cart)
         let totalPrice=0
-        let totalDiscount=0
-       
+        let totalDiscount=0  
         {cart.map((item)=>{
             
             totalPrice=totalPrice+(item.count*item.price)
@@ -42,9 +41,9 @@ class CartPage extends React.Component{
         const fontgreen=green[600]
         return (
             <>
-                <Box  sx={{ backgroundColor:color}} >
+                <Box  sx={{ backgroundColor:color,height:'100vh',overflowY:'auto'}} >
                     <Navbar/>
-                        { cart.length!=0?(<Box className="cart-container">
+                        { cart.length!=0?(<Box className="cart-container" sx={{height:'100%'}} >
                                 <List dense={true}>
                                     {cart.map((product,index)=>{
                                         return(
@@ -97,7 +96,7 @@ class CartPage extends React.Component{
                                         )
                                     })}
                                 </List>
-                                <Card sx={{width:400, height:'fit-content', marginTop:10 }}>
+                                <Card sx={{maxWidth:'600px', height:'fit-content', marginTop:10 }} className="price-card">
                                     <CardContent sx={{display:"flex",flexDirection:'column',justifyContent:'center'}}>
                                         <Box >
                                             <Typography variant="h6" color="text.secondary">

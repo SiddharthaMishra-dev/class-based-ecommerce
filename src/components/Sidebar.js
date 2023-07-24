@@ -23,6 +23,7 @@ class Sidebar extends React.Component{
         const {categories,category}=this.props
         return (
             <Box sx={{backgroundColor:'#ffff'}}>
+                
                 {
                     categories
                     ?(

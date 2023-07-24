@@ -54,7 +54,7 @@ class Home extends React.Component{
     const {categories,category,open}=this.state
     const color=grey[100]    
     return (
-      <Box sx={{backgroundColor:color}} >
+      <Box sx={{backgroundColor:color,overflowY:'auto'}} >
         <Navbar toggleFunction={this.toggleDrawer} />
           <Box sx={{display:{sm:'none'}}}>
                 <Drawer anchor="left" open={open} onClose={this.toggleDrawer}>

@@ -11,7 +11,7 @@ class Start extends React.Component{
         const headingColor=blue[700]
         const bodyColor=blue[600]
         return (
-            <Box sx={{height:"100vh"}}>
+            <Box sx={{height:"100vh",overflowY:'auto'}}>
                 <Navbar/>
                 <Box className="start-showcase" sx={{height:1}} >
                     <Typography variant="h1" color={headingColor} className="start-showcase-heading" >
