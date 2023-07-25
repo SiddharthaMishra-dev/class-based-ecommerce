@@ -10,10 +10,11 @@ class Start extends React.Component{
     render(){
         const headingColor=blue[700]
         const bodyColor=blue[600]
+        const boxHeight= 'calc(100vh - 55px)'
         return (
             <Box sx={{height:"100vh",overflowY:'auto'}}>
-                <Navbar/>
-                <Box className="start-showcase" sx={{height:1}} >
+                <Navbar sidebarHidden={true} />
+                <Box className="start-showcase" sx={{height:boxHeight}} >
                     <Typography variant="h1" color={headingColor} className="start-showcase-heading" >
                         Buy on one-click
                     </Typography>

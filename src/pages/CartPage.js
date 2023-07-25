@@ -39,11 +39,12 @@ class CartPage extends React.Component{
         })}
         const color=grey[100]  
         const fontgreen=green[600]
+        const boxHeight= 'calc(100vh - 55px)'
         return (
             <>
                 <Box  sx={{ backgroundColor:color,height:'100vh',overflowY:'auto'}} >
-                    <Navbar/>
-                        { cart.length!=0?(<Box className="cart-container" sx={{height:'100%'}} >
+                    <Navbar sidebarHidden={true} />
+                        { cart.length!=0?(<Box className="cart-container" sx={{height:boxHeight}} >
                                 <List dense={true}>
                                     {cart.map((product,index)=>{
                                         return(

@@ -36,8 +36,9 @@ class Navbar extends React.Component{
             itemCount+=item.count
         })}
         return (
-            <AppBar position="sticky" className="navbar">
+            <AppBar position="sticky" className="navbar" sx={{height:55}}>
               <Toolbar variant="dense">
+                {/* {this.props.sidebarHidden?"":
                 <IconButton
                   size="large"
                   edge="start"
@@ -49,6 +50,7 @@ class Navbar extends React.Component{
                 >
                   <MenuIcon />
                 </IconButton>
+               } */}
                 <Typography variant="h6" component="div" sx={{}} className="navbar-heading" >
                   ShopKaro
                 </Typography>
@@ -84,7 +86,7 @@ class Navbar extends React.Component{
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                  <Link to="/">
+                  <Link to="/cart">
                       <Button color='inherit'className="cart-button"  >
                         <Badge badgeContent={itemCount} color='error'  >
                           Cart

@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./pages/Home";
+import Products from "./pages/Products";
 import CartPage from "./pages/CartPage";
 import Start from "./pages/Start";
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
@@ -10,7 +10,7 @@ class App extends React.Component{
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Start/>}/>
-          <Route path ="/products" element={<Home/>}/>
+          <Route path ="/products" element={<Products/>}/>
           <Route path="/cart" element={<CartPage/>}/>
         </Routes>
       </BrowserRouter>

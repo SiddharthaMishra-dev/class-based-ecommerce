@@ -13,10 +13,14 @@ import {grey} from '@mui/material/colors'
 import React from "react";
 import { Box } from '@mui/material';
 import { Drawer, IconButton, List, ListItem, ListItemText, withWidth } from "@mui/material";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import ListItemButton from '@mui/material/ListItemButton';
+import { styled } from '@mui/material/styles';
 
 
-class Home extends React.Component{
+
+class Products extends React.Component{
 
   constructor(props){
     super(props);
@@ -51,19 +55,50 @@ class Home extends React.Component{
   }
 
   render(){
+    const Puller = styled(Box)(({ theme }) => ({
+      height: 30,
+      width: 6,
+      backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
+      borderRadius: 3,
+      position: 'absolute',
+      right: 8,
+      bottom: 'calc(50% - 15px)',
+    }));
+    const StyledBox = styled(Box)(({ theme }) => ({
+      backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[800],
+    }));
     const {categories,category,open}=this.state
     const color=grey[100]    
+    const drawerBleeding = 50;
+    const drawerWidth = `calc(100% - ${drawerBleeding}% - 16px)`
+    const boxHeight= 'calc(100vh - 55px)'
     return (
-      <Box sx={{backgroundColor:color,overflowY:'auto'}} >
-        <Navbar toggleFunction={this.toggleDrawer} />
+      <Box sx={{backgroundColor:color,height:'100vh',overflowY:'auto'}} >
+        <Navbar toggleFunction={this.toggleDrawer} sidebarHidden={false} />
+        <Box sx={{height:boxHeight,overflowY:'auto'}} >
           <Box sx={{display:{sm:'none'}}}>
-                <Drawer anchor="left" open={open} onClose={this.toggleDrawer}>
-                  <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
-                </Drawer>
+                <Button onClick={this.toggleDrawer}>
+                  <ChevronRightIcon/>
+                </Button>
+                <SwipeableDrawer 
+                anchor='left'
+                open={open}
+                onOpen={this.toggleDrawer}
+                onClose={this.toggleDrawer}
+                swipeAreaWidth={drawerBleeding}
+                disableSwipeToOpen={false}
+                ModalProps={{
+                  keepMounted: true,
+                }}
+                >
+                    <Puller/>
+                    <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
+                  
+                </SwipeableDrawer>
           </Box>
           <Grid spacing={1} container sx={{width:'90%',margin:'auto'}}  >
             <Hidden smDown>
-            <Grid item  sm={2} >
+            <Grid item  sm={2} position='sticky' top={0} sx={{height:boxHeight,overflowY:'auto'}} >
               <Sidebar categories={categories} category={category} updateCategory={this.updateCategory} />
             </Grid>
             </Hidden>
@@ -71,9 +106,10 @@ class Home extends React.Component{
               <Showcase category={category}/>
             </Grid>
           </Grid>
+        </Box>
       </Box>
       )
   }
 }
 
-export default Home;
+export default Products;
