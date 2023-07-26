@@ -13,31 +13,47 @@ import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 import ShareIcon from '@mui/icons-material/Share';
 import { addItem } from "../store/actions";
-
+import TextField from '@mui/material/TextField';
 
 class Showcase extends React.Component{
 
     constructor(props){
         super(props);
         this.state={
-            productList:[]
+            productList:[],
+            search:'',
         }
     }
 
     fetchData=async()=>{
-        const response=await fetch(`https://dummyjson.com/products/category/${this.props.category}`)
-        const result=await response.json()
-        this.setState({
-            productList:result.products
-        })
+        if(this.state.search===''){
+            const response=await fetch(`https://dummyjson.com/products/category/${this.props.category}`)
+            const result=await response.json()
+            this.setState({
+                productList:result.products
+            })
+        }
+        else{
+            const response=await fetch(`https://dummyjson.com/products/search?q=${this.state.search}`)
+            const result=await response.json()
+            this.setState({
+                productList:result.products
+            })
+        }
+        
     }
-
+    handleChange=(e)=>{
+        this.setState({search:e.target.value})
+    }
     componentDidMount(){
         this.fetchData();
     }
     
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps,prevState) {
         if (prevProps.category !== this.props.category) {
+            this.fetchData();
+        }
+        if(prevState.search !== this.state.search){
             this.fetchData();
         }
       }
@@ -46,6 +62,9 @@ class Showcase extends React.Component{
         const {productList}=this.state
         return (
         <Box sx={{backgroundColor:'#ffff'}}>
+            <Box sx={{width:'50%',marginLeft:'auto',marginRight:'auto'}}>
+                <TextField id="outlined-search" label="Search field" type="search" sx={{margin:2,width:'100%'}} value={this.state.search} onChange={this.handleChange} />
+            </Box>
             {
                 productList?
                     <List dense={true}>

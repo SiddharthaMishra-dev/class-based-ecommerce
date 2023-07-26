@@ -10,7 +10,7 @@ class Sidebar extends React.Component{
     constructor(props){
         super(props);
        this.state={
-            selectedCategory:0
+            selectedCategory:0,
         }
     }
 
@@ -18,6 +18,7 @@ class Sidebar extends React.Component{
         this.props.updateCategory(selectedCategory)
         this.setState({selectedCategory:index})
     }
+
     
     render(){
         const {categories,category}=this.props
@@ -25,12 +26,14 @@ class Sidebar extends React.Component{
             <Box sx={{backgroundColor:'#ffff'}}>
                 {
                     categories
-                    ?(
-                        <List className="list-item" >
-                        {categories.map((item,index)=>{
-                            return <ListItem key={index} onClick={()=>this.handleCategorySelection(item,index)} ><ListItemButton selected={this.state.selectedCategory===index} ><ListItemText primary={item}/></ListItemButton></ListItem>
-                        })}
-                        </List>
+                    ?(<>
+                            
+                            <List className="list-item" >
+                            {categories.map((item,index)=>{
+                                return <ListItem key={index} onClick={()=>this.handleCategorySelection(item,index)} ><ListItemButton selected={this.state.selectedCategory===index} ><ListItemText primary={item}/></ListItemButton></ListItem>
+                            })}
+                            </List>
+                        </> 
                     ):"loading"
                  }  
             </Box>
