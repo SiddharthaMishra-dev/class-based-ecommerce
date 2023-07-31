@@ -6,14 +6,17 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
 class App extends React.Component{
   render(){
+   
     return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Start/>}/>
-          <Route path ="/products" element={<Products/>}/>
-          <Route path="/cart" element={<CartPage/>}/>
-        </Routes>
-      </BrowserRouter>
+      
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Start/>}/>
+            <Route path ="/products" element={<Products/>}/>
+            <Route path="/cart" element={<CartPage/>}/>
+          </Routes>
+        </BrowserRouter>
+     
     )
   }
 }

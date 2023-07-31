@@ -38,19 +38,6 @@ class Navbar extends React.Component{
         return (
             <AppBar position="sticky" className="navbar" sx={{height:55}}>
               <Toolbar variant="dense">
-                {/* {this.props.sidebarHidden?"":
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{display:{sm:'none'}, mr: 2 }}
-                  onClick={this.props.toggleFunction}
-                  className="cart-button"
-                >
-                  <MenuIcon />
-                </IconButton>
-               } */}
                 <Typography variant="h6" component="div" sx={{}} className="navbar-heading" >
                   ShopKaro
                 </Typography>
