@@ -21,6 +21,7 @@ class Showcase extends React.Component {
     super(props);
     this.state = {
       productList: [],
+      filteredList:[],
       search: "",
       price:100,
     };
@@ -34,6 +35,7 @@ class Showcase extends React.Component {
       const result = await response.json();
       this.setState({
         productList: result.products,
+        filteredList:result.products
       });
     } else {
       const response = await fetch(
@@ -42,6 +44,7 @@ class Showcase extends React.Component {
       const result = await response.json();
       this.setState({
         productList: result.products,
+        filteredList:result.products
       });
     }
   };
@@ -54,7 +57,7 @@ class Showcase extends React.Component {
   }
   handleFilter=()=>{
     const newProductlist=this.state.productList.filter((items)=>items.price<=this.state.price)
-    this.setState({productList:newProductlist})
+    this.setState({filteredList:newProductlist})
   }
   componentDidMount() {
     this.fetchData();
@@ -70,7 +73,7 @@ class Showcase extends React.Component {
   }
 
   render() {
-    const { productList } = this.state;
+    const {filteredList } = this.state;
     return (
       <Box sx={{ backgroundColor: "#ffff" }}>
         <Box sx={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}>
@@ -82,7 +85,7 @@ class Showcase extends React.Component {
             value={this.state.search}
             onChange={this.handleChange}
           />
-          <Box>
+          <Box sx={{display:'flex',flexDirection:'column'}} >
             <p>Price</p>
             <Slider 
                 marks
@@ -96,9 +99,9 @@ class Showcase extends React.Component {
             <Button onClick={this.handleFilter} >Apply</Button>
           </Box>
         </Box>
-        {productList ? (
+        {filteredList ? (
           <List dense={true}>
-            {productList.map((product, index) => {
+            {filteredList.map((product, index) => {
               return (
                 <ListItem key={index}>
                   <Card
