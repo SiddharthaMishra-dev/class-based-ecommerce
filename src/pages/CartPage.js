@@ -17,7 +17,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import Box from "@mui/material/Box";
 import ShareIcon from "@mui/icons-material/Share";
-import { grey, green } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 class CartPage extends React.Component {
   render() {
@@ -34,13 +34,12 @@ class CartPage extends React.Component {
         totalDiscount += discount;
       });
     }
-    const color = grey[100];
     const fontgreen = green[600];
     const boxHeight = "calc(100vh - 55px)";
     return (
       <>
         <Box>
-          {cart.length != 0 ? (
+          {cart.length !== 0 ? (
             <Box className="cart-container" sx={{ height: boxHeight }}>
               <List dense={true}>
                 {cart.map((product, index) => {

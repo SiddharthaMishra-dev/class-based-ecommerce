@@ -9,11 +9,14 @@ import { Box } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { styled } from "@mui/material/styles";
-
+import Fade from '@mui/material/Fade';
+import CircularProgress from '@mui/material/CircularProgress';
+import Loading from "../components/Loading";
 class Products extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading:false,
       categories: [],
       category: "smartphones",
       open: false,
@@ -27,11 +30,17 @@ class Products extends React.Component {
   };
 
   fetchData = async () => {
-    const response = await fetch("https://dummyjson.com/products/categories");
-    const result = await response.json();
-    this.setState({
-      categories: result,
-    });
+    this.setState({loading:true})
+    try {
+      const response = await fetch("https://dummyjson.com/products/categories");
+      const result = await response.json();
+      this.setState({
+        categories: result,
+        loading:false,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   updateCategory = (selectedCategory) => {
@@ -53,13 +62,11 @@ class Products extends React.Component {
       right: 8,
       bottom: "calc(50% - 15px)",
     }));
-    const StyledBox = styled(Box)(({ theme }) => ({
-      backgroundColor: theme.palette.mode === "light" ? "#fff" : grey[800],
-    }));
+
     const { categories, category, open } = this.state;
-    const color = grey[100];
+
     const drawerBleeding = 50;
-    const drawerWidth = `calc(100% - ${drawerBleeding}% - 16px)`;
+
     const boxHeight = "calc(100vh - 55px)";
     return (
       <>
@@ -104,6 +111,9 @@ class Products extends React.Component {
           </Hidden>
           <Grid item sm={10} className="">
             <Showcase category={category} />
+            <Fade in={this.state.loading}>
+              <CircularProgress size={55} sx={{position:'absolute' ,top:'50%', left:'50%'}}/>
+            </Fade>
           </Grid>
         </Grid>
       </>

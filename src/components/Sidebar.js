@@ -4,6 +4,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Box } from "@mui/material";
+import CircularProgress from '@mui/material/CircularProgress';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -12,12 +13,10 @@ class Sidebar extends React.Component {
       selectedCategory: 0,
     };
   }
-
   handleCategorySelection = (selectedCategory, index) => {
     this.props.updateCategory(selectedCategory);
     this.setState({ selectedCategory: index });
   };
-
   render() {
     const { categories, category } = this.props;
     return (
@@ -42,7 +41,7 @@ class Sidebar extends React.Component {
             </List>
           </>
         ) : (
-          "loading"
+            <CircularProgress size={55}/>
         )}
       </Box>
     );
