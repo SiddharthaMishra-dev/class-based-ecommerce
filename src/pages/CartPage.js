@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import EmptyCart from "../components/emptyCart";
 import { connect } from "react-redux";
 import { removeItem, addItem } from "../store/actions";
@@ -11,9 +10,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import List from "@mui/material/List";
-import TextField from "@mui/material/TextField";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
@@ -21,7 +18,6 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import Box from "@mui/material/Box";
 import ShareIcon from "@mui/icons-material/Share";
 import { grey, green } from "@mui/material/colors";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 class CartPage extends React.Component {
   render() {

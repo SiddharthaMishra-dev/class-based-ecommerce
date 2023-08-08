@@ -38,10 +38,10 @@ class Navbar extends React.Component {
       });
     }
     return (
-      <AppBar position="sticky" className="navbar" sx={{ height: 55 }}>
+      <AppBar position="sticky" className="navbar">
         <Toolbar variant="dense">
           <Typography
-            variant="h6"
+            variant="h5"
             component="div"
             sx={{}}
             className="navbar-heading"

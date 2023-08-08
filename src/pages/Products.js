@@ -1,27 +1,13 @@
-import Navbar from "../components/Navbar";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { Hidden } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
 import Sidebar from "../components/Sidebar";
 import Showcase from "../components/Showcase";
-import Cartbar from "../components/Cartbar";
 import { grey } from "@mui/material/colors";
 import React from "react";
 import { Box } from "@mui/material";
-import {
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  withWidth,
-} from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import ListItemButton from "@mui/material/ListItemButton";
 import { styled } from "@mui/material/styles";
 
 class Products extends React.Component {

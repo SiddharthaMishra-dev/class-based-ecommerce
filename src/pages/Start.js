@@ -1,16 +1,14 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
-import Navbar from "../components/Navbar";
 import {Button} from "@mui/material";
 import blue from "@mui/material/colors/blue";
 import { Link } from "react-router-dom";
 
 class Start extends React.Component{
     render(){
-        const headingColor=blue[700]
+        const headingColor=blue[900]
         const bodyColor=blue[600]
-        const boxHeight= 'calc(100vh - 55px)'
         return (
             <>
                 <Box className="start-showcase" >
@@ -21,7 +19,7 @@ class Start extends React.Component{
                         Everything on One-click, from phone to phone cover, laptop to lamp, car to accessories ,menwear to womenwears and many more.
                     </Typography>
                     <Link to="/products">
-                        <Button variant="contained" size="large">Buy Now</Button>
+                        <Button variant="contained" size="large" sx={{fontSize:'1.2rem',fontWeight:'bold'}} >Buy Now</Button>
                     </Link>
                 </Box>
             </>

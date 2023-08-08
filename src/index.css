@@ -5,6 +5,12 @@
 }
 .navbar{
   width: 100vw !important; 
+  height: 55px !important;
+}
+
+.navbar-content{
+  font-size: 1rem !important;
+  font-weight: bold !important;
 }
 
 .showcase{
