@@ -15,11 +15,14 @@ import ShareIcon from "@mui/icons-material/Share";
 import { addItem } from "../store/actions";
 import TextField from "@mui/material/TextField";
 import Slider from '@mui/material/Slider';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 class Showcase extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      anchorEl:null,
       productList: [],
       filteredList:[],
       search: "",
@@ -85,6 +88,12 @@ class Showcase extends React.Component {
             value={this.state.search}
             onChange={this.handleChange}
           />
+          <Button size="large" color="inherit">Filter</Button>
+          <Menu>
+            <MenuItem>
+
+            </MenuItem>
+          </Menu>
           <Box sx={{display:'flex',flexDirection:'column'}} >
             <p>Price</p>
             <Slider 
