@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
-// import {store,persistor} from './store';
 import {persistor,store} from './store/index.js'
 ReactDOM.render(
   <Provider store={store}>
